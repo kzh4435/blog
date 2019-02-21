@@ -11,11 +11,70 @@
     <link href="./css/bootstrap.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="./css/style.css">
     <link href="./css/font-awesome.css" rel="stylesheet" type="text/css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #292f36;
+            height:46px;
+            line-height: 46px;
+            color: #FFFFFF;
+            padding: 0 1.5em;
+            text-align: center;
+        }
+
+        .header--fixed {
+            position: fixed;
+            z-index: 10;
+            right: 0;
+            left: 0;
+            top: 0
+        }
+
+        .animated {
+            -webkit-animation-duration: .5s;   /*表示动画执行的时间*/
+            -webkit-animation-fill-mode: both; /*规定动画在播放前和之后其动画效果是否可见*/
+            animation-fill-mode: both
+        }
+
+        @-webkit-keyframes slideDown {       /*表示匀速地执行动画*/
+            0% {
+                -webkit-transform: translateY(-46px);
+            }
+
+            100% {
+                -webkit-transform: translateY(0);
+            }
+        }
+
+        .animated.slideDown {
+            -webkit-animation-name: slideDown;   /*规定需要绑定到选择器的 keyframe 名称。。*/
+            animation-name: slideDown
+        }
+
+        @-webkit-keyframes slideUp {
+            0% {
+                -webkit-transform: translateY(0);
+            }
+
+            100% {
+                -webkit-transform: translateY(-46px);
+            }
+        }
+
+        .animated.slideUp {
+            -webkit-animation-name: slideUp;
+            animation-name: slideUp
+        }
+
+    </style>
 </head>
 <body>
     <!--header-->
     <div class="main-top" id="home">
-        <header>
+        <header  id="header">
             <div class="container-fluid">
                 <div class="header">
                     <div id="logo">
@@ -31,7 +90,7 @@
                                 <li><!-- First Tier Drop Down -->
                                     <label for="drop-2" class="toggle toogle-2">Dropdown <span class="fa fa-angle-down" aria-hidden="true"></span>
                                     </label>
-                                    <a href="#" class="active">Dropdown <span class="fa fa-angle-down" aria-hidden="true"></span></a>
+                                    <a href="#" >Dropdown <span class="fa fa-angle-down" aria-hidden="true"></span></a>
                                     <input type="checkbox" id="drop-2" />
                                     <ul>
                                         <li><a href="index.html" class="drop-text">Services</a></li>
@@ -60,3 +119,29 @@
     </div>
 </body>
 </html>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/headroom.js"></script>
+<script>
+    var header = document.querySelector("header");
+    var headroom = new Headroom(header, {
+        tolerance: 5,
+        offset: 205,
+        classes: {
+            initial: "animated",
+            pinned: "slideDown",
+            unpinned: "slideUp"
+        }
+    });
+    headroom.init();
+
+    // $(window).scroll(function() {
+    //     if ($(window).scrollTop() > 0) {
+    //         $('.header-section').addClass('is-scroll')
+    //         $('.header-section').addClass('headroom--unpinned')
+    //     } else if ($(window).scrollTop() <= 0) {
+    //         $('.header-section').removeClass('is-scroll')
+    //         $('.header-section').removeClass('headroom--unpinned')
+    //     }
+    // });
+
+</script>

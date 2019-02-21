@@ -4,6 +4,7 @@ body {
     margin: 0;
     background: #FFF;
     font-family: 'Nunito Sans', sans-serif;
+    height: 1800px;
 }
 
 body a,
@@ -127,11 +128,36 @@ a.move-top {
 }
 
 header {
-    position: absolute;
+    position: fixed;
     width: 100%;
     z-index: 9;
+    -webkit-box-shadow: 0 0 1rem rgba(134,134,134,.24);
+    box-shadow: 0 0 1rem rgba(134,134,134,.24);
+
+
 }
 
+.header-section.headroom--pinned {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+    -webkit-transition: .2s ease-in-out;
+    -o-transition: .2s ease-in-out;
+    transition: .2s ease-in-out;
+}
+.header-section.is-scroll {
+    -webkit-box-shadow: 0 0 1rem rgba(134,134,134,.24);
+    box-shadow: 0 0 1rem rgba(134,134,134,.24);
+}
+
+.header-section.headroom--unpinned {
+    -webkit-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    transform: translateY(-100%);
+    -webkit-transition: .2s ease-in-out;
+    -o-transition: .2s ease-in-out;
+    transition: .2s ease-in-out;
+}
 /* navigation */
 /* CSS Document */
 .toggle-2,
@@ -145,7 +171,6 @@ nav {
     margin: 0;
     padding: 0;
 }
-
 
 #logo a {
     float: left;
@@ -182,10 +207,11 @@ nav ul li {
     margin: 0px;
     display: inline-block;
     float: left;
+
 }
 
 /* Styling the links */
-nav a {
+nav li a {
     color: #fff;
     text-transform: capitalize;
     font-weight: 400;
@@ -199,6 +225,7 @@ nav a {
     -moz-transition: 0.5s all;
     -o-transition: 0.5s all;
     -ms-transition: 0.5s all;
+
 }
 
 
@@ -1323,7 +1350,7 @@ p.title-sub-2 {
     }
 
     .banner_w3lspvt-2 {
-        min-height: 270px;
+        min-height: 450px;
     }
 }
 

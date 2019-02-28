@@ -5108,4 +5108,23 @@ footer.demo .copyright {
 .more-project-wrapper {
     text-align: center;
 }
+.pagi-area{
+    padding-bottom: 80px;
+}
+
+.code-block {
+    padding: 2.2rem;
+    font-size: .95rem;
+}
+
+.code-block {
+    font-size: .85rem;
+    line-height: 1.7em;
+    padding: 1.3rem;
+    border-radius: 3px;
+}
+
+
+
+
 
